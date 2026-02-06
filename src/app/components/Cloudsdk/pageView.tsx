@@ -17,10 +17,10 @@ export default function PageView() {
     })
       .addEvents() // Initialize the `events` package.
       .addSearch() // Inititalize the 'search' package
-      .addPersonalize({
-        enablePersonalizeCookie: true,
-        webPersonalization: true,
-      }) // Initialize the `personalize` package.
+      // .addPersonalize({
+      //   enablePersonalizeCookie: true,
+      //   webPersonalization: true,
+      // }) // Initialize the `personalize` package.
       .initialize();
 
     // Send VIEW event:

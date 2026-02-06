@@ -1,6 +1,6 @@
 {
   "name": "cloudsdk-demo",
-  "version": "0.5https://eur02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fsitecore.atlassian.net%2Fbrowse%2FCDK-231%3FatlOrigin%3DeyJpIjoiMTljMGUxN2ZhOTkxNDQ4NmI1YzEyYjk3YmEyZjA3NmYiLCJwIjoiaiJ9&data=05%7C02%7Cchah%40sitecore.net%7C1425ad97c73a41e695d008dd3ee4b591%7C91700184c3144dc9bb7ea411df456a1e%7C0%7C0%7C638735874213545147%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=gwax8x1Ug69AIgGRmPTgDbZVjpagpJJ83bZe3yeK3gM%3D&reserved=0.0",
+  "version": "0.5",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,12 +11,12 @@
   "dependencies": {
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
-    "@sitecore-cloudsdk/core": "^0.5.0",
-    "@sitecore-cloudsdk/events": "^0.5.0",
-    "@sitecore-cloudsdk/personalize": "^0.5.0",
-    "@sitecore-cloudsdk/search": "^0.5.0",
+    "@sitecore-cloudsdk/core": "^0.6.0",
+    "@sitecore-cloudsdk/events": "^0.6.0",
+    "@sitecore-cloudsdk/personalize": "^0.6.0",
+    "@sitecore-cloudsdk/search": "^0.6.0",
     "cookies-next": "^5.1.0",
-    "next": "15.1.11",
+    "next": "15.5.12",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
@@ -27,7 +27,7 @@
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.20",
     "eslint": "^9",
-    "eslint-config-next": "15.1.5",
+    "eslint-config-next": "15.5.12",
     "postcss": "^8.5.1",
     "tailwindcss": "^3.4.17",
     "typescript": "^5"

@@ -4,7 +4,7 @@ import SearchResultCard from "./SearchResultCard";
 import Spinner from "./Spinner";
 import useSearch, { SUGGESION_KEY, WIDGET_ID } from "../hooks/useSearch";
 import { useState } from "react";
-import { widgetSuggestionClick } from "@sitecore-cloudsdk/search/browser";
+import { Context, getWidgetData, SearchWidgetItem, WidgetRequestData, widgetSuggestionClick } from "@sitecore-cloudsdk/search/browser";
 import { usePathname } from "next/navigation";
 import {
   SearchFacet,
