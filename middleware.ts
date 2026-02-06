@@ -8,14 +8,14 @@ import { CloudSDK } from "@sitecore-cloudsdk/core/server";
 export async function middleware(request: NextRequest) {
   const response = NextResponse.next();
   console.log("Initializing CloudSDK in middleware");
-  CloudSDK(request, response, {
+  await CloudSDK(request, response, {
     sitecoreEdgeContextId:
       process.env.NEXT_PUBLIC_SITECORE_CDP_CONTEXT_ID ?? "",
     siteName: process.env.NEXT_PUBLIC_SITECORE_POS ?? "",
     enableServerCookie: true,
   })
     .addEvents() // Initialize the `events` package.
-    .addSearch() // Inititalize the 'search' package
+    .addSearch() // Initialize the 'search' package.
     .addPersonalize({
       enablePersonalizeCookie: true,
     }) // Initialize the `personalize` package.
