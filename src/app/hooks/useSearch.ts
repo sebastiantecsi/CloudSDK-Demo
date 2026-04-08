@@ -26,6 +26,7 @@ function useSearch<
   const [data, setData] = useState<T>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const pathName = usePathname();
+  const sources = process.env.NEXT_PUBLIC_SEARCH_ID ?? "";
 
   useEffect(() => {
     async function fetchData() {
@@ -36,7 +37,7 @@ function useSearch<
       const widgetRequest = new SearchWidgetItem("content", WIDGET_ID); // Create a new widget request
       widgetRequest.content = {}; // Request all attributes for the entity
       widgetRequest.limit = 10; // Limit the number of results to 10
-      widgetRequest.sources = ["1050047"]; // Search in a sources
+      widgetRequest.sources = [sources]; // Search in a sources
       //widgetRequest.suggestion = [suggesions];
       if (query && query.length >= 3) {
         widgetRequest.query = {
@@ -94,7 +95,7 @@ function useSearch<
     }
 
     fetchData();
-  }, [inputFilter, pathName, query]);
+  }, [inputFilter, pathName, query, sources]);
   return { data, isLoading };
 }
 export default useSearch;
