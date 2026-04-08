@@ -15,7 +15,7 @@ export default function ResetSessionButton() {
 
   async function resetSession() {
     const cookieBaseKey =
-      "sc_" + (process?.env?.NEXT_PUBLIC_SITECORE_CDP_CONTEXT_ID ?? "");
+      "sc_" + (process?.env?.NEXT_PUBLIC_SITECORE_CONTEXT_ID ?? "");
     deleteCookie(cookieBaseKey);
     deleteCookie(cookieBaseKey + "_personalize");
     setOpen(true);

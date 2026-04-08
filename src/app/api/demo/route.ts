@@ -1,6 +1,6 @@
-import type { NextRequest } from "next/server";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { CloudSDK } from "@sitecore-cloudsdk/core/server";
+import "@sitecore-cloudsdk/events/server";
 import {
   Context,
   getWidgetData,
@@ -8,7 +8,7 @@ import {
   WidgetRequestData,
 } from "@sitecore-cloudsdk/search/server";
 
-export async function GET(request: Request) {
+export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const q = searchParams.get("q");
 
@@ -20,6 +20,20 @@ export async function GET(request: Request) {
   }
 
   try {
+    // Initialize Cloud SDK in the API route context.
+    // Middleware runs in a separate execution context and its initialization
+    // does not carry over to API route handlers.
+    
+    const response = NextResponse.next();
+    await CloudSDK(request, response, {
+      sitecoreEdgeContextId: process.env.NEXT_PUBLIC_SITECORE_CONTEXT_ID ?? "",
+      siteName: process.env.NEXT_PUBLIC_SITECORE_POS ?? "",
+      enableServerCookie: true,
+    })
+      .addEvents()
+      .addSearch()
+      .initialize();
+
     const context = new Context({
       locale: { language: "en", country: "gb" },
     });
@@ -30,7 +44,7 @@ export async function GET(request: Request) {
     widgetRequest.limit = 10; // Limit the number of results to 10
     widgetRequest.sources = ["1050047"]; // Search in a sources
     widgetRequest.query = {
-      keyphrase: "demo",
+      keyphrase: q,
     };
 
     widgetRequest.facet = { all: true, types: [{ name: "news_type" }] };
