@@ -101,7 +101,6 @@ The application requires the following environment variables:
 | Variable | Description |
 |---|---|
 | `NEXT_PUBLIC_SITECORE_CONTEXT_ID` | Sitecore Edge Context ID (browser-side SDK init) |
-| `NEXT_PUBLIC_SITECORE_CDP_CONTEXT_ID` | Sitecore CDP Context ID (server-side middleware init) |
 | `NEXT_PUBLIC_SITECORE_POS` | Sitecore Point of Sale / Site Name |
 | `NEXT_PUBLIC_IDENTITY_PROVIDER` | Identity provider key for the `identity()` event |
 
@@ -127,7 +126,6 @@ Create a `.env.local` file in the project root:
 
 ```env
 NEXT_PUBLIC_SITECORE_CONTEXT_ID=your-context-id
-NEXT_PUBLIC_SITECORE_CDP_CONTEXT_ID=your-cdp-context-id
 NEXT_PUBLIC_SITECORE_POS=your-site-name
 NEXT_PUBLIC_IDENTITY_PROVIDER=your-identity-provider
 ```
@@ -185,7 +183,7 @@ The SDK is also initialized in `middleware.ts` for server-side operations:
 
 ```typescript
 CloudSDK(request, response, {
-  sitecoreEdgeContextId: process.env.NEXT_PUBLIC_SITECORE_CDP_CONTEXT_ID,
+  sitecoreEdgeContextId: process.env.NEXT_PUBLIC_SITECORE_CONTEXT_ID,
   siteName: process.env.NEXT_PUBLIC_SITECORE_POS,
   enableServerCookie: true,
 })
