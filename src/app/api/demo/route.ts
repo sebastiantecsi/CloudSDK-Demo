@@ -38,11 +38,13 @@ export async function GET(request: NextRequest) {
       locale: { language: "en", country: "gb" },
     });
 
+    const sources = process.env.NEXT_PUBLIC_SEARCH_ID ?? "";
+
     // Create a widget request with the entity "product" and widget ID "rfkid_7":
     const widgetRequest = new SearchWidgetItem("content", "rfkid_442");
     widgetRequest.content = {}; // Request all attributes for the entity
     widgetRequest.limit = 10; // Limit the number of results to 10
-    widgetRequest.sources = ["1050047"]; // Search in a sources
+    widgetRequest.sources = [sources]; // Search in a sources
     widgetRequest.query = {
       keyphrase: q,
     };
